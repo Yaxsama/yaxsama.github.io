@@ -1,61 +1,112 @@
 <html>
 <head>
-<title>Christopher Macioce - Home</title>
-<style>body {background-color: #FFF98F;}</style>
-<link rel='stylesheet' href="aamaster.css">
-<style>
-img{border-radius: 10%; -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 50%, transparent 80%); mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 50%, transparent 80%);}
-</style>
+    <title>Christopher Macioce - Home</title>
+    <style>
+        /* Navbar specific styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Royal Blue Gradient */
+            background: linear-gradient(90deg, #003366, #0052cc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        /* Defined button look for links */
+        .navbar a {
+            color: white !important; /* Forces nav text to be white for readability */
+            text-decoration: none;
+            padding: 8px 18px;
+            margin: 0 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease-in-out;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Hover "Pop" effect */
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #003366 !important;
+            transform: scale(1.05); /* Makes the button grow slightly */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        /* Main Page Styles */
+        body {
+            background-color: #FFF98F;
+            margin-top: 80px; /* Space for the navbar */
+        }
+
+        img {
+            border-radius: 10%;
+            -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 50%, transparent 80%);
+            mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 50%, transparent 80%);
+        }
+    </style>
+    <link rel='stylesheet' href="aamaster.css">
 </head>
 <body>
+
+<nav class="navbar">
+    <a href="https://www.pba.edu/">PBA</a>
+    <a href="directory.html">Class Directory</a>
+    <a href="visual_directory.html">Visual Directory</a>
+    <a href="floating_directory.html">Floating Directory</a>
+    <a href="colors.html">Colors</a>
+    <a href="class_protocol_macioce.html">Class Protocol</a>
+    <a href="movies.html">Favorite Movies</a>
+    <a href="movies_css.html">Movies (CSS)</a>
+    <a href="food.html">Foods</a>
+</nav>
+
 <h1>Christopher Macioce</h1>
 <img src="myphoto.jpg" width="200">
 <p>CSC 2333 HY Website Development</p>
 <p><i>Thursdays 12:30-1:45 PM</i></p>
-<a href="https://www.pba.edu/">Palm Beach Atlantic University</a>
-<br>
-<a href="directory.html">Class Directory</a>
-<a href="visual_directory.html">(Visual)</a>
-<a href="floating_directory.html">(Floating)</a>
-<br>
-<a href="colors.html">Colors</a>
-<br>
-<a href="class_protocol_macioce.html">Class Protocol</a>
-<br>
-<a href="movies.html">Favorite Movies</a>
-<br>
-<a href="movies_css.html">Favorite Movies (CSS)</a>
-<br>
-<a href="food.html">Favorite Foods</a>
+
 <hr>
 <h2>My Favorite Foods</h2>
 <table cellpadding=5 cellspacing=5>
-<tr>
-<td>
-<p>Breakfast - <a href="breakfast.png">Skillet</p></a>
-<p>Lunch - <a href="lunch.png">Turkey Club</p></a>
-<p>Dinner - <a href="dinner.png">Steak with Mashed Potatoes</p></a>
-<p>Snack - <a href="snack.png">Goldfish</p></a>
-</td>
-<td><img src="breakfast.png" height=150></td>
-<td><img src="lunch.png" height=150></td>
-<td><img src="dinner.png" height=150></td>
-<td><img src="snack.png" height=150></td>
+    <tr>
+        <td>
+            <p>Breakfast - <a href="breakfast.png">Skillet</a></p>
+            <p>Lunch - <a href="lunch.png">Turkey Club</a></p>
+            <p>Dinner - <a href="dinner.png">Steak with Mashed Potatoes</a></p>
+            <p>Snack - <a href="snack.png">Goldfish</a></p>
+        </td>
+        <td><img src="breakfast.png" height=150></td>
+        <td><img src="lunch.png" height=150></td>
+        <td><img src="dinner.png" height=150></td>
+        <td><img src="snack.png" height=150></td>
+    </tr>
 </table>
+
 <hr>
 <h2>My Favorite Binge Watches</h2>
 <ol>
-<li>The Office</li>
-<li>Breaking Bad</li>
-<li>Seinfeld</li>
+    <li>The Office</li>
+    <li>Breaking Bad</li>
+    <li>Seinfeld</li>
 </ol>
+
 <hr>
 <h2>My Favorite States</h2>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Florida">Florida</li></a>
-<li><a href="https://en.wikipedia.org/wiki/Maryland">Maryland</li></a>
-<li><a href="https://en.wikipedia.org/wiki/Texas">Texas</li></a>
+    <li><a href="https://en.wikipedia.org/wiki/Florida">Florida</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Maryland">Maryland</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Texas">Texas</a></li>
 </ul>
 <hr>
+
 </body>
 </html>
