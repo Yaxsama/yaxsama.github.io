@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Christopher Macioce - Breakfast Directory</title>
+<link rel='stylesheet' href="aamaster.css">
+<style>
+    h1 {
+        text-align: center;
+        pointer-events: none; /* Allows images to pass "under" the text */
+        position: relative;
+        z-index: 10;
+        font-family: Arial, sans-serif;
+    }
+
+    .floater {
+        position: absolute;
+        width: 120px; 
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        -webkit-mask-image: radial-gradient(circle, black 50%, transparent 80%);
+        mask-image: radial-gradient(circle, black 50%, transparent 80%);
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .floater:hover {
+        transform: scale(1.2);
+        z-index: 100;
+    }
+</style>
+</head>
+<body>
+
+<h1>CSC 2333 HY Class Directory - Floating Breakfast</h1>
+
+<div id="container">
+    <a href="breakfast.png"><img class="floater" src="https://www.barslan.dev/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.imanibeharry.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.lburgee.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://josh-butz.github.io/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.johnnyhceleste.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.cmfrancis.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.calvinhyrkas.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://ajisbeast.github.io/Adam-Leatherman-Website/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.lindorchristian.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://yaxsama.github.io/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.kyletokeefe.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.jazmineolmos.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.srshaler.com/breakfast.png"></a>
+    <a href="breakfast.png"><img class="floater" src="https://www.lukesstevens.com/breakfast.png"></a>
+</div>
+
+<script>
+    const images = document.querySelectorAll('.floater');
+    const data = [];
+    const radius = 60; // Half of the 120px width
+
+    // Initialize random positions and velocities
+    images.forEach((img) => {
+        data.push({
+            el: img,
+            x: Math.random() * (window.innerWidth - 120),
+            y: Math.random() * (window.innerHeight - 120),
+            vx: (Math.random() - 0.5) * 4,
+            vy: (Math.random() - 0.5) * 4
+        });
+    });
+
+    function update() {
+        for (let i = 0; i < data.length; i++) {
+            let p1 = data[i];
+
+            // Move
+            p1.x += p1.vx;
+            p1.y += p1.vy;
+
+            // Wall Bounce
+            if (p1.x <= 0 || p1.x >= window.innerWidth - 120) p1.vx *= -1;
+            if (p1.y <= 0 || p1.y >= window.innerHeight - 120) p1.vy *= -1;
+
+            // Simple Collision Detection (Ball vs Ball)
+            for (let j = i + 1; j < data.length; j++) {
+                let p2 = data[j];
+                let dx = p2.x - p1.x;
+                let dy = p2.y - p1.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < radius * 2) {
+                    // Swap velocities for a simple "bounce" effect
+                    [p1.vx, p2.vx] = [p2.vx, p1.vx];
+                    [p1.vy, p2.vy] = [p2.vy, p1.vy];
+                    
+                    // Nudge apart to prevent getting stuck inside each other
+                    let overlap = radius * 2 - distance;
+                    let nx = dx / distance;
+                    let ny = dy / distance;
+                    p1.x -= nx * overlap / 2;
+                    p1.y -= ny * overlap / 2;
+                    p2.x += nx * overlap / 2;
+                    p2.y += ny * overlap / 2;
+                }
+            }
+
+            // Apply to CSS
+            p1.el.style.left = p1.x + 'px';
+            p1.el.style.top = p1.y + 'px';
+        }
+        requestAnimationFrame(update);
+    }
+
+    update();
+</script>
+</body>
+</html>

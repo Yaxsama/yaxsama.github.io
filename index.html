@@ -8,7 +8,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            /* Royal Blue Gradient */
             background: linear-gradient(90deg, #003366, #0052cc);
             display: flex;
             justify-content: center;
@@ -18,9 +17,8 @@
             z-index: 1000;
         }
 
-        /* Defined button look for links */
         .navbar a {
-            color: white !important; /* Forces nav text to be white for readability */
+            color: white !important;
             text-decoration: none;
             padding: 8px 18px;
             margin: 0 8px;
@@ -33,24 +31,35 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Hover "Pop" effect */
         .navbar a:hover {
             background-color: #ffffff;
             color: #003366 !important;
-            transform: scale(1.05); /* Makes the button grow slightly */
+            transform: scale(1.05);
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         /* Main Page Styles */
         body {
             background-color: #FFF98F;
-            margin-top: 80px; /* Space for the navbar */
+            margin-top: 80px;
+            font-family: Arial, sans-serif;
         }
 
         img {
             border-radius: 10%;
             -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 50%, transparent 80%);
             mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 50%, transparent 80%);
+        }
+
+        /* Movie Group Hover Effect */
+        .movie-img {
+            opacity: 0; /* Movies start invisible */
+            transition: opacity 0.5s ease-in-out; /* Smooth fade */
+        }
+
+        /* When the first table cell (your photo) is hovered, show all movie images */
+        .profile-cell:hover ~ td .movie-img {
+            opacity: 1;
         }
     </style>
     <link rel='stylesheet' href="aamaster.css">
@@ -63,6 +72,7 @@
     <a href="directory.html">Class Directory</a>
     <a href="visual_directory.html">Visual Directory</a>
     <a href="floating_directory.html">Floating Directory</a>
+    <a href="breakfast_directory.html">Breakfast Directory</a>
     <a href="colors.html">Colors</a>
     <a href="class_protocol_macioce.html">Class Protocol</a>
     <a href="movies.html">Favorite Movies</a>
@@ -71,13 +81,26 @@
 </nav>
 
 <h1>Christopher Macioce</h1>
-<img src="myphoto.jpg" width="200">
-<p>CSC 2333 HY Website Development</p>
-<p><i>Thursdays 12:30-1:45 PM</i></p>
+
+<!-- Movie Gallery Table triggered by Photo -->
+<table cellpadding="5" cellspacing="5">
+    <tr>
+        <!-- Added 'profile-cell' class here to act as the trigger -->
+        <td class="profile-cell">
+            <img src="myphoto.jpg" width="200">
+            <p>CSC 2333 HY Website Development</p>
+            <p><i>Thursdays 12:30-1:45 PM</i></p>
+        </td>
+        <td><img src="movie1.png" height="150" class="movie-img"></td>
+        <td><img src="movie2.png" height="150" class="movie-img"></td>
+        <td><img src="movie3.png" height="150" class="movie-img"></td>
+        <td><img src="movie4.png" height="150" class="movie-img"></td>
+    </tr>
+</table>
 
 <hr>
 <h2>My Favorite Foods</h2>
-<table cellpadding=5 cellspacing=5>
+<table cellpadding="5" cellspacing="5">
     <tr>
         <td>
             <p>Breakfast - <a href="breakfast.png">Skillet</a></p>
@@ -85,10 +108,10 @@
             <p>Dinner - <a href="dinner.png">Steak with Mashed Potatoes</a></p>
             <p>Snack - <a href="snack.png">Goldfish</a></p>
         </td>
-        <td><img src="breakfast.png" height=150></td>
-        <td><img src="lunch.png" height=150></td>
-        <td><img src="dinner.png" height=150></td>
-        <td><img src="snack.png" height=150></td>
+        <td><img src="breakfast.png" height="150"></td>
+        <td><img src="lunch.png" height="150"></td>
+        <td><img src="dinner.png" height="150"></td>
+        <td><img src="snack.png" height="150"></td>
     </tr>
 </table>
 
